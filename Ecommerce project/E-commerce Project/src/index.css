@@ -1,0 +1,40 @@
+.app-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 15%; /* Adjust the width to your preference */
+  position: fixed;
+  height: 100vh; /* Full height of the viewport */
+  border-right: 2px solid #e5e5e5;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.main-content {
+  margin-left: 17%; /* Matches the sidebar width */
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.product-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.btns {
+  padding: 10px 20px;
+  margin-right: 6px;
+  background: transparent;
+  border: none;
+  border: 0.6px solid #ccc;
+  border-radius: 5px;
+  color: #323232;
+  cursor: pointer;
+}

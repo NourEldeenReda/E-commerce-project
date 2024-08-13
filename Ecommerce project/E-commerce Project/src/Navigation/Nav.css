@@ -1,0 +1,75 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keep space between logo, search, and profile container */
+  border-bottom: 2px solid #f3f3f3;
+
+  z-index: 999;
+}
+
+.logo-container {
+  margin-right: 2rem; /* Adjust as needed to space it from the search bar */
+}
+
+.search-container {
+  flex: 1; /* Allow the search bar to take up available space */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: #888888;
+}
+
+.search-input {
+  width: 70%; /* Make the search bar take full width */
+  padding: 12px 20px 12px 40px; /* Fine-tune padding for the icon */
+  border: none;
+  background: #f1f7fa;
+  outline: none;
+  border-radius: 5px;
+}
+
+.language-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.language-text {
+  margin-right: 3px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #9a47f8;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.8rem;
+  color: #8269df;
+}
+
+.profile-container a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin-left: 1rem;
+  background-color: #ccc2f863;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-container a .nav-icons {
+  margin-left: 5px;
+  color: #8269df;
+}
