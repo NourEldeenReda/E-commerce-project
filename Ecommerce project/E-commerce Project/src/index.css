@@ -16,9 +16,10 @@
 }
 
 .main-content {
-  margin-left: 17%; /* Matches the sidebar width */
+  margin-left: 250px; /* Adjust this to match the sidebar width */
   padding: 20px;
   flex-grow: 1;
+  transition: margin-left 0.3s ease; /* Smooth transition */
 }
 
 .product-cards-container {
