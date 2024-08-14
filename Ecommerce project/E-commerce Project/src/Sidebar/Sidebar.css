@@ -1,192 +1,82 @@
-.sidebar {
+#sidebar-wrapper {
   width: 250px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  height: calc(100vh - 100px);
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  position: sticky;
+  top: 115px;
+  height: calc(100vh - 115px);
   overflow-y: auto;
-  position: fixed;
-  top: 100px;
-  left: 0;
-  z-index: 2;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #e5e5e5;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
 
-.category-section {
-  margin-bottom: 20px;
+/* Category section styling */
+.list-group-item {
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: #333;
 }
 
-.category-section h2 {
-  font-size: 16px;
+.list-group-item.active {
+  color: #6200ea; /* Purple color for the active category */
+  font-weight: bold;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa; /* Light background on hover */
+}
+
+/* Filter section headers */
+.list-group-item .filter-header {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.filter-by {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  margin-top: 20px;
+}
+
+.list-group-item .form-check-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.list-group-item .form-check-input {
+  margin-right: 10px;
+}
+
+/* Apply button styling */
+.sidebar-buttons .btn-primary {
+  background-color: #6200ea;
+  border-color: #6200ea;
+}
+
+.sidebar-buttons .btn-outline-secondary {
+  color: #000;
+  border-color: #ccc;
+}
+
+/* Adjust spacing between filters and sections */
+.list-group-item {
   margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.category-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.category-section li {
-  margin: 5px 0;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.category-section .active {
-  color: #6a0dad;
-  font-weight: bold;
 }
 
 .filter-section {
   margin-bottom: 20px;
 }
 
-.filter-section h3 {
-  font-size: 14px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.filter-item h4 {
-  cursor: pointer;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.filter-item ul {
-  list-style: none;
-  padding-left: 10px;
-  margin-bottom: 15px;
-}
-
-.filter-item li {
-  margin-bottom: 8px;
-  font-size: 14px;
-}
-
-.filter-item input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.colour {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-left: 5px;
-  vertical-align: middle;
-}
-
-.colour.black {
-  background-color: #000;
-}
-.colour.red {
-  background-color: #e53935;
-}
-.colour.brown {
-  background-color: #8d6e63;
-}
-.colour.multicolour {
-  background-image: linear-gradient(45deg, #fbc02d, #e91e63, #3f51b5);
-}
-.colour.grey {
-  background-color: #9e9e9e;
-}
-.colour.blue {
-  background-color: #2196f3;
-}
-
-/* Apply Button Styling */
-.apply-button-container {
-  background-color: #f9f9f9; /* Match sidebar background */
-  padding-top: 10px;
-  padding-bottom: 10px;
-  position: sticky; /* Keeps the button in view while scrolling */
-  bottom: 0;
-  left: 0;
-}
-
-.apply-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4b00f7;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.apply-button:hover {
-  background-color: #3500d3;
-}
-
-/* Media Queries for Responsive Design */
-
-/* For tablets and smaller devices */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px; /* Adjust width */
-    padding: 15px;
-  }
-
-  .category-section h2,
-  .filter-section h3 {
-    font-size: 16px;
-  }
-
-  .filter-item h4 {
-    font-size: 13px;
-  }
-
-  .apply-button {
-    padding: 8px;
-  }
-}
-
-/* For mobile devices */
-@media (max-width: 576px) {
-  .sidebar {
-    width: 100%; /* Sidebar takes full width */
-    height: auto; /* Adjust height */
-    position: static; /* Positioning for stacking */
-    padding: 10px;
-    border-right: none;
-    border-bottom: 2px solid #e5e5e5;
-  }
-
-  .main-content {
-    margin-left: 0; /* No margin for mobile */
-  }
-
-  .category-section h2,
-  .filter-section h3 {
-    font-size: 14px;
-  }
-
-  .filter-item h4 {
-    font-size: 12px;
-  }
-
-  .apply-button-container {
-    justify-content: center;
-  }
-
-  .apply-button {
-    width: 90%;
-    padding: 10px;
-    background-color: #4b00f7;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .apply-button:hover {
-    background-color: #3500d3;
-  }
+/* Optional: Custom checkbox colors */
+.form-check-input:checked {
+  background-color: #6200ea;
+  border-color: #6200ea;
 }

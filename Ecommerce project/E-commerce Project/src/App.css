@@ -1,0 +1,45 @@
+/* App.css */
+
+/* Container for the sidebar and main content */
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* Full height */
+}
+
+/* Sidebar styling */
+#sidebar-wrapper {
+  width: 250px; /* Fixed width for the sidebar */
+  background-color: #f8f9fa; /* Light background */
+  border-right: 1px solid #e0e0e0; /* Border to separate sidebar */
+  position: sticky;
+  top: 115px; /* Offset from the top of the viewport by the height of the navbar */
+  height: calc(100vh - 115px); /* Full height minus the height of the navbar */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-bottom: 20px; /* Optional: Add padding to avoid content touching the bottom */
+}
+
+/* Main content styling */
+.main-content {
+  margin-left: 150px; /* Ensure content doesn't overlap the sidebar */
+  padding: 20px;
+  width: 100%; /* Take the remaining width */
+  /* overflow: auto; Allow scrolling */
+}
+
+/* Additional adjustments for specific content sections if needed */
+.recommended {
+  margin-bottom: 20px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  flex: 1 1 calc(33.333% - 20px); /* Make three cards fit per row with space */
+  box-sizing: border-box;
+  max-width: calc(33.333% - 20px);
+}

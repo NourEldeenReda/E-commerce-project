@@ -1,15 +1,40 @@
 import "./Category.css";
+
 function Category() {
   return (
     <div className="category-section">
-      <h2>Category</h2>
-      <ul>
-        <li>T-Shirt</li>
-        <li className="active">Sweatshirt</li>
-        <li>Dress</li>
-        <li>Pants and Skirt</li>
-        <li>Swimsuit</li>
-        <li>Stuff and Accessories</li>
+      <h4 className="category-header">Category</h4>
+      <ul className="category-list">
+        <li className="category-item">
+          <a href="#" className="category-link">
+            T-Shirt
+          </a>
+        </li>
+        <li className="category-item">
+          <a href="#" className="category-link active">
+            Sweatshirt
+          </a>
+        </li>
+        <li className="category-item">
+          <a href="#" className="category-link">
+            Dress
+          </a>
+        </li>
+        <li className="category-item">
+          <a href="#" className="category-link">
+            Pants and Skirt
+          </a>
+        </li>
+        <li className="category-item">
+          <a href="#" className="category-link">
+            Swimsuit
+          </a>
+        </li>
+        <li className="category-item">
+          <a href="#" className="category-link">
+            Stuff and Accessories
+          </a>
+        </li>
       </ul>
     </div>
   );

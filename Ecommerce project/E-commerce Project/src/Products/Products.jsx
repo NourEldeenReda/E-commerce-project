@@ -1,12 +1,12 @@
-import "./products.css";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Products.css";
 const ProductCard = () => {
   return (
-    <>
-      <div className="product-cards-container">
-        <article className="product-card">
+    <div className="container">
+      <div className="row row-cols-1 row-cols-md-3 g-5">
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -22,7 +22,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -30,7 +30,8 @@ const ProductCard = () => {
             </footer>
           </section>
         </article>
-        <article className="product-card">
+        {/* Duplicate for other cards */}
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -46,7 +47,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -54,7 +55,7 @@ const ProductCard = () => {
             </footer>
           </section>
         </article>
-        <article className="product-card">
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -70,7 +71,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -78,7 +79,7 @@ const ProductCard = () => {
             </footer>
           </section>
         </article>
-        <article className="product-card">
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -94,7 +95,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -102,7 +103,7 @@ const ProductCard = () => {
             </footer>
           </section>
         </article>
-        <article className="product-card">
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -118,7 +119,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -126,7 +127,7 @@ const ProductCard = () => {
             </footer>
           </section>
         </article>
-        <article className="product-card">
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -142,7 +143,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -150,7 +151,7 @@ const ProductCard = () => {
             </footer>
           </section>
         </article>
-        <article className="product-card">
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -166,7 +167,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -174,7 +175,7 @@ const ProductCard = () => {
             </footer>
           </section>
         </article>
-        <article className="product-card">
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -190,7 +191,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -198,7 +199,7 @@ const ProductCard = () => {
             </footer>
           </section>
         </article>
-        <article className="product-card">
+        <article className="col product-card">
           <header className="product-image">
             <img
               src="https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg"
@@ -214,7 +215,7 @@ const ProductCard = () => {
               <div>
                 <p className="price-label">Price:</p>
                 <span className="price">$200</span>
-                <span className="old-price">$420</span> {/* Old price */}
+                <span className="old-price">$420</span>
               </div>
               <button className="cart-button">
                 <AiOutlineShoppingCart />
@@ -223,7 +224,7 @@ const ProductCard = () => {
           </section>
         </article>
       </div>
-    </>
+    </div>
   );
 };
 
