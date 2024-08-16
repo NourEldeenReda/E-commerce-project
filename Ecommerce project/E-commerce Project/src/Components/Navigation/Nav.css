@@ -1,9 +1,14 @@
 .navbar {
   z-index: 999;
+  --bs-navbar-padding-y: 0rem;
 }
 
 .logo-container {
   margin-right: 1.5rem;
+}
+.logo-container img {
+  width: 238px;
+  height: auto;
 }
 
 .search-container {
@@ -51,9 +56,14 @@
   background-color: #ccc2f863;
   border-radius: 12px;
   font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .profile-container a .nav-icons {
   margin-left: 5px;
   color: #8269df;
+}
+.profile-container :hover {
+  background-color: #afafcf8c;
 }

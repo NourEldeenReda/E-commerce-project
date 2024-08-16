@@ -21,7 +21,7 @@
 
 /* Main content styling */
 .main-content {
-  margin-left: 150px; /* Ensure content doesn't overlap the sidebar */
+  margin: 0px 15px; /* Ensure content doesn't overlap the sidebar */
   padding: 20px;
   width: 100%; /* Take the remaining width */
   /* overflow: auto; Allow scrolling */

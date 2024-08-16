@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Colour.css";
 
-function Colour() {
+function Colour({ handleChange }) {
   const [colourOpen, setColourOpen] = useState(true);
 
   return (
@@ -13,15 +13,28 @@ function Colour() {
         Colour
       </h4>
       {colourOpen && (
-        <ul className="list-unstyled dropdown-animation">
+        <ul
+          onChange={handleChange}
+          className="list-unstyled dropdown-animation"
+        >
           <li className="form-check">
-            <input type="checkbox" className="form-check-input" id="black" />
+            <input
+              value="black"
+              type="checkbox"
+              className="form-check-input"
+              id="black"
+            />
             <label htmlFor="black" className="form-check-label">
               Black <span className="colour black"></span>
             </label>
           </li>
           <li className="form-check">
-            <input type="checkbox" className="form-check-input" id="red" />
+            <input
+              value="red"
+              type="checkbox"
+              className="form-check-input"
+              id="red"
+            />
             <label htmlFor="red" className="form-check-label">
               Red <span className="colour red"></span>
             </label>
@@ -34,10 +47,10 @@ function Colour() {
           </li>
           <li className="form-check">
             <input
+              value=""
               type="checkbox"
               className="form-check-input"
               id="multicolour"
-              defaultChecked
             />
             <label htmlFor="multicolour" className="form-check-label">
               Multicolour <span className="colour multicolour"></span>

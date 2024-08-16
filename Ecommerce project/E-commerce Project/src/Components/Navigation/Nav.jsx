@@ -4,18 +4,28 @@ import { FiHeart } from "react-icons/fi";
 import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Nav.css";
+import PropTypes from "prop-types";
 
-function Nav() {
+function Nav({ query, setQuery }) {
+  const handleInputChange = (event) => {
+    setQuery(event.target.value);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
       <div className="container-fluid">
         <div className="navbar-brand logo-container">
-          <img src="src/assets/image.png" alt="Logo" />
+          <img
+            src="src\assets\Untitled_LE_auto_x2 (1)_LE_ml_resize_x2.jpg"
+            alt="Logo"
+          />
         </div>
 
         <div className="search-container mx-auto position-relative">
           <RiSearch2Line className="search-icon position-absolute" />
           <input
+            value={query}
+            onChange={handleInputChange}
             type="text"
             className="form-control search-input"
             placeholder="Search among 100+ products"
@@ -44,4 +54,8 @@ function Nav() {
   );
 }
 
+Nav.propTypes = {
+  setQuery: PropTypes.func.isRequired,
+  query: PropTypes.string.isRequired,
+};
 export default Nav;
