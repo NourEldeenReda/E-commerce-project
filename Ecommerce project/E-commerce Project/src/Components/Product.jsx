@@ -10,7 +10,7 @@ function Product({ img, title, newPrice, discount }) {
   const prevPrice = Math.round(newPrice / (1 - discountDecimal));
 
   return (
-    <article className="col product-card">
+    <section className="col product-card">
       <header className="product-image">
         <img src={img} alt={title} />
         <div className="heart-icon">
@@ -30,7 +30,7 @@ function Product({ img, title, newPrice, discount }) {
           </button>
         </footer>
       </section>
-    </article>
+    </section>
   );
 }
 

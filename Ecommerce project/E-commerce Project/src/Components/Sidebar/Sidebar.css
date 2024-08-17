@@ -80,3 +80,6 @@
   background-color: #6200ea;
   border-color: #6200ea;
 }
+.d-flex {
+  align-items: start;
+}

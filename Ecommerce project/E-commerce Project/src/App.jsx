@@ -3,18 +3,27 @@ import Products from "./Components//Products/Products";
 import Recommended from "./Components//Recommended/Recommended";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 //data
-import ProductsData from "./Data/Data";
 import Product from "./Components/Product";
 
 function App() {
+  const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [query, setQuery] = useState("");
 
+  // Fetch products data from json-server
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
   //-----------input Filter-----------------
 
-  const filteredItems = ProductsData.filter(
+  const filteredItems = products.filter(
     (product) =>
       product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !==
       -1
@@ -51,7 +60,7 @@ function App() {
     ));
   }
 
-  const result = filteredData(ProductsData, selectedCategory, query);
+  const result = filteredData(products, selectedCategory, query);
 
   return (
     <>

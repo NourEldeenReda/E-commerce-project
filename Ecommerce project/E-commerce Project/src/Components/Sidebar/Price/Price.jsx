@@ -5,7 +5,7 @@ function Price({ handleChange }) {
   const [priceOpen, setPriceOpen] = useState(false);
 
   return (
-    <div className="filter-section">
+    <aside className="filter-section">
       <h4
         className={`filter-header ${priceOpen ? "opened" : "closed"}`}
         onClick={() => setPriceOpen(!priceOpen)}
@@ -74,7 +74,7 @@ function Price({ handleChange }) {
           </li>
         </ul>
       )}
-    </div>
+    </aside>
   );
 }
 

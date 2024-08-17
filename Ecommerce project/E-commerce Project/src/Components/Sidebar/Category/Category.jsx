@@ -2,7 +2,7 @@ import "./Category.css";
 
 function Category() {
   return (
-    <div className="category-section">
+    <aside className="category-section">
       <h4 className="category-header">Category</h4>
       <ul className="category-list">
         <li className="category-item">
@@ -36,7 +36,7 @@ function Category() {
           </a>
         </li>
       </ul>
-    </div>
+    </aside>
   );
 }
 

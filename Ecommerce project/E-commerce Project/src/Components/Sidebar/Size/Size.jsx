@@ -5,7 +5,7 @@ function Size() {
   const [sizeOpen, setSizeOpen] = useState(false);
 
   return (
-    <div className="filter-section">
+    <aside className="filter-section">
       <h4
         className={`filter-header ${sizeOpen ? "opened" : "closed"}`}
         onClick={() => setSizeOpen(!sizeOpen)}
@@ -34,7 +34,7 @@ function Size() {
           </li>
         </ul>
       )}
-    </div>
+    </aside>
   );
 }
 

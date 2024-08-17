@@ -5,7 +5,7 @@ function Type() {
   const [typeOpen, setTypeOpen] = useState(true);
 
   return (
-    <div className="filter-section">
+    <aside className="filter-section">
       <h4
         className={`filter-header ${typeOpen ? "opened" : "closed"}`}
         onClick={() => setTypeOpen(!typeOpen)}
@@ -51,7 +51,7 @@ function Type() {
           </li>
         </ul>
       )}
-    </div>
+    </aside>
   );
 }
 
