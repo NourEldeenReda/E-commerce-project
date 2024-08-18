@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Price.css";
 
-function Price({ handleChange }) {
+function Price({ handlePriceChange }) {
   const [priceOpen, setPriceOpen] = useState(false);
 
   return (
@@ -14,7 +14,7 @@ function Price({ handleChange }) {
       </h4>
       {priceOpen && (
         <ul
-          onChange={handleChange}
+          onChange={handlePriceChange}
           className="list-unstyled dropdown-animation"
         >
           <li className="form-check">
@@ -30,46 +30,46 @@ function Price({ handleChange }) {
           </li>
           <li className="form-check">
             <input
-              value={50}
+              value="50"
               type="checkbox"
               className="form-check-input"
-              id="0-50"
+              id="50"
             />
-            <label htmlFor="0-50" className="form-check-label">
+            <label htmlFor="50" className="form-check-label">
               $0 - $50
             </label>
           </li>
           <li className="form-check">
             <input
-              value={100}
+              value="100"
               type="checkbox"
               className="form-check-input"
-              id="50-100"
+              id="100"
             />
-            <label htmlFor="50-100" className="form-check-label">
+            <label htmlFor="100" className="form-check-label">
               $50 - $100
             </label>
           </li>
           <li className="form-check">
             <input
-              value={150}
+              value="150"
               type="checkbox"
               className="form-check-input"
-              id="100-150"
+              id="150"
             />
-            <label htmlFor="100-150" className="form-check-label">
+            <label htmlFor="150" className="form-check-label">
               $100 - $150
             </label>
           </li>
           <li className="form-check">
             <input
-              value={200}
+              value="200"
               type="checkbox"
               className="form-check-input"
-              id="100-200"
+              id="200"
             />
-            <label htmlFor="100-200" className="form-check-label">
-              $100 - $200
+            <label htmlFor="200" className="form-check-label">
+              $150 - $200
             </label>
           </li>
         </ul>

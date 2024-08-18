@@ -9,7 +9,7 @@ import Product from "./Components/Product";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState([]);
   const [query, setQuery] = useState("");
 
   // Fetch products data from json-server
@@ -29,32 +29,42 @@ function App() {
       -1
   );
 
-  function filteredData(products, selected, query) {
+  function filteredData(products, selectedCategories, query) {
     let filteredProducts = products;
 
-    //filtering input items
+    // Filter by query (search input)
     if (query) {
       filteredProducts = filteredItems;
     }
 
-    // Selected Filter
-
-    if (selected) {
-      filteredProducts = filteredProducts.filter(
-        ({ category, color, brand, newPrice, title }) =>
-          category === selected ||
-          color === selected ||
-          brand === selected ||
-          newPrice === selected ||
-          title === selected
+    // Filter by selected categories
+    if (selectedCategories.length > 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        selectedCategories.some((selected) => {
+          if (selected === "") {
+            return true; // If "All" is selected, include all products
+          } else if (parseInt(selected)) {
+            // Handle price filtering
+            return product.price == selected;
+          } else {
+            // Handle other filters (color, brand, etc.)
+            return (
+              product.category === selected ||
+              product.color === selected ||
+              product.brand === selected ||
+              product.title === selected
+            );
+          }
+        })
       );
     }
-    return filteredProducts.map(({ id, img, title, newPrice, discount }) => (
+
+    return filteredProducts.map(({ id, img, title, price, discount }) => (
       <Product
         key={id}
         img={img}
         title={title}
-        newPrice={newPrice}
+        price={price}
         discount={discount}
       />
     ));

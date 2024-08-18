@@ -1,10 +1,14 @@
-import PropTypes from "prop-types";
 import Buttons from "../Buttons";
 import "./Recommended.css";
 
 function Recommended({ setSelectedCategory }) {
   const handleClick = (event) => {
-    setSelectedCategory(event.target.value);
+    const value = event.target.value;
+    if (value === "") {
+      setSelectedCategory([]); // Reset to an empty array for "All Products"
+    } else {
+      setSelectedCategory([value]); // Set the selected category in an array
+    }
   };
 
   return (
@@ -22,8 +26,5 @@ function Recommended({ setSelectedCategory }) {
     </>
   );
 }
-Recommended.propTypes = {
-  setSelectedCategory: PropTypes.func.isRequired,
-};
 
 export default Recommended;

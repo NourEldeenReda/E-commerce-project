@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./Colour.css";
 
-function Colour({ handleChange }) {
+function Colour({ handleColourChange }) {
   const [colourOpen, setColourOpen] = useState(true);
 
   return (
-    <div className="filter-section">
+    <aside className="filter-section">
       <h4
         className={`filter-header ${colourOpen ? "opened" : "closed"}`}
         onClick={() => setColourOpen(!colourOpen)}
@@ -14,7 +14,7 @@ function Colour({ handleChange }) {
       </h4>
       {colourOpen && (
         <ul
-          onChange={handleChange}
+          onChange={handleColourChange}
           className="list-unstyled dropdown-animation"
         >
           <li className="form-check">
@@ -40,14 +40,19 @@ function Colour({ handleChange }) {
             </label>
           </li>
           <li className="form-check">
-            <input type="checkbox" className="form-check-input" id="brown" />
+            <input
+              value="brown"
+              type="checkbox"
+              className="form-check-input"
+              id="brown"
+            />
             <label htmlFor="brown" className="form-check-label">
               Brown <span className="colour brown"></span>
             </label>
           </li>
           <li className="form-check">
             <input
-              value=""
+              value="multicolour"
               type="checkbox"
               className="form-check-input"
               id="multicolour"
@@ -57,20 +62,52 @@ function Colour({ handleChange }) {
             </label>
           </li>
           <li className="form-check">
-            <input type="checkbox" className="form-check-input" id="grey" />
+            <input
+              value="grey"
+              type="checkbox"
+              className="form-check-input"
+              id="grey"
+            />
             <label htmlFor="grey" className="form-check-label">
               Grey <span className="colour grey"></span>
             </label>
           </li>
           <li className="form-check">
-            <input type="checkbox" className="form-check-input" id="blue" />
+            <input
+              value="blue"
+              type="checkbox"
+              className="form-check-input"
+              id="blue"
+            />
             <label htmlFor="blue" className="form-check-label">
               Blue <span className="colour blue"></span>
             </label>
           </li>
+          <li className="form-check">
+            <input
+              value="green"
+              type="checkbox"
+              className="form-check-input"
+              id="green"
+            />
+            <label htmlFor="green" className="form-check-label">
+              Green <span className="colour green"></span>
+            </label>
+          </li>
+          <li className="form-check">
+            <input
+              value="white"
+              type="checkbox"
+              className="form-check-input"
+              id="white"
+            />
+            <label htmlFor="white" className="form-check-label">
+              White <span className="colour white"></span>
+            </label>
+          </li>
         </ul>
       )}
-    </div>
+    </aside>
   );
 }
 

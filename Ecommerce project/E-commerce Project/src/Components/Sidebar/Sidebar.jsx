@@ -11,7 +11,18 @@ import "./sidebar.css"; // Your custom CSS for additional styling
 
 function Sidebar({ setSelectedCategory }) {
   const handleChange = (event) => {
-    setSelectedCategory(event.target.value);
+    const value = event.target.value;
+    const isChecked = event.target.checked;
+
+    setSelectedCategory((prevSelected) => {
+      if (isChecked) {
+        // Add the new value to the array of selected categories
+        return [...prevSelected, value];
+      } else {
+        // Remove the unchecked value from the array
+        return prevSelected.filter((item) => item !== value);
+      }
+    });
   };
 
   return (
@@ -20,19 +31,19 @@ function Sidebar({ setSelectedCategory }) {
       <div className="bg-light border-right" id="sidebar-wrapper">
         <div className="list-group list-group-flush">
           <div className="list-group-item bg-light">
-            <Category handleChange={handleChange} />
+            <Category handleCategoryChange={handleChange} />
           </div>
           <div className="list-group-item bg-light">
             <Type />
           </div>
           <div className="list-group-item bg-light">
-            <Colour handleChange={handleChange} />
+            <Colour handleColourChange={handleChange} />
           </div>
           <div className="list-group-item bg-light">
             <Size />
           </div>
           <div className="list-group-item bg-light">
-            <Price handleChange={handleChange} />
+            <Price handlePriceChange={handleChange} />
           </div>
         </div>
         <div className="sidebar-buttons p-3 d-flex justify-content-between">
