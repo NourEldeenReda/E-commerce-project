@@ -40,4 +40,5 @@ Product.propTypes = {
   price: PropTypes.number.isRequired,
   discount: PropTypes.string.isRequired, // Ensure discount is passed as a string like "10%"
 };
+
 export default Product;

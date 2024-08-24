@@ -1,9 +1,11 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Products.css";
+import Product from "../Product"; // Import the Product component
 
-const ProductCard = ({ result }) => {
+const ProductCard = () => {
+  const result = useSelector((state) => state.filtering.filteredProducts); // Access filtered products from Redux state
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 9;
 
@@ -31,7 +33,15 @@ const ProductCard = ({ result }) => {
   return (
     <div className="container">
       <div className="row row-cols-1 row-cols-md-3 g-5 products-container">
-        {currentProducts}
+        {currentProducts.map(({ id, img, title, price, discount }) => (
+          <Product
+            key={id}
+            img={img}
+            title={title}
+            price={price}
+            discount={discount}
+          />
+        ))}
       </div>
       <div className="pagination justify-content-center mt-4">
         <button

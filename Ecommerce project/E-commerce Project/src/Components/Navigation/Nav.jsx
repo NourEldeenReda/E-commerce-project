@@ -5,10 +5,15 @@ import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Nav.css";
 import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import { setQuery } from "../../Store/filteringSlice";
+function Nav() {
+  const dispatch = useDispatch();
 
-function Nav({ query, setQuery }) {
+  const query = useSelector((state) => state.filtering.query);
+
   const handleInputChange = (event) => {
-    setQuery(event.target.value);
+    dispatch(setQuery(event.target.value));
   };
 
   return (

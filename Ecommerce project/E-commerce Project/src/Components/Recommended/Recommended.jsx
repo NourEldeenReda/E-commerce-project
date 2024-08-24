@@ -1,13 +1,16 @@
+import { useDispatch } from "react-redux";
 import Buttons from "../Buttons";
 import "./Recommended.css";
+import { setSelectedCategory } from "../../Store/filteringSlice";
 
-function Recommended({ setSelectedCategory }) {
+function Recommended() {
+  const dispatch = useDispatch();
   const handleClick = (event) => {
     const value = event.target.value;
     if (value === "") {
-      setSelectedCategory([]); // Reset to an empty array for "All Products"
+      dispatch(setSelectedCategory([])); // Reset to an empty array for "All Products"
     } else {
-      setSelectedCategory([value]); // Set the selected category in an array
+      dispatch(setSelectedCategory([value])); // Set the selected category in an array
     }
   };
 
