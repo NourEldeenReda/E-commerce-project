@@ -3,14 +3,18 @@ import Category from "./Category/Category";
 import Colour from "./Colour/Colour";
 import Size from "./Size/Size";
 import Price from "./Price/Price";
-import { FaTrash } from "react-icons/fa";
+import { TfiReload } from "react-icons/tfi";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./sidebar.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setFilteringResult,
-  applyFilters,
   resetFilters,
+  fetchFilteredProducts,
+  setPriceSelection,
+  setColorSelection,
+  setRecommendedBrand,
+  setCategorySelection, // Import fetchFilteredProducts
 } from "../../Store/filteringSlice";
 
 function Sidebar() {
@@ -32,12 +36,14 @@ function Sidebar() {
     );
   };
 
-  const handleApply = () => {
-    dispatch(applyFilters());
-  };
-
   const handleReset = () => {
-    dispatch(resetFilters());
+    dispatch(resetFilters()); // Reset all filters in the Redux state
+    dispatch(setCategorySelection([])); // Reset category to "All"
+    dispatch(setRecommendedBrand([])); // Reset recommended brand to "All"
+    dispatch(setColorSelection([])); // Reset color selection
+    dispatch(setPriceSelection([])); // Reset price selection
+
+    dispatch(fetchFilteredProducts()); // Fetch data with reset filters
   };
 
   return (
@@ -59,13 +65,10 @@ function Sidebar() {
         </div>
         <div className="sidebar-buttons p-3 d-flex justify-content-between">
           <button
-            className="btn btn-primary flex-grow-1 me-2"
-            onClick={handleApply}
+            className="btn btn-outline-secondary btn-reset"
+            onClick={handleReset}
           >
-            Apply
-          </button>
-          <button className="btn btn-outline-secondary" onClick={handleReset}>
-            <FaTrash />
+            <TfiReload style={{ color: "black" }} />
           </button>
         </div>
       </div>

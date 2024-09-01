@@ -1,8 +1,30 @@
 import { useState } from "react";
 import "./Colour.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setColorSelection,
+  fetchFilteredProducts,
+} from "../../../Store/filteringSlice"; // Import necessary actions
 
-function Colour({ handleColourChange }) {
+function Colour() {
   const [colourOpen, setColourOpen] = useState(true);
+  const dispatch = useDispatch();
+  const selectedColors = useSelector((state) => state.filtering.selectedColor); // Ensure we use the correct state
+
+  const handleCheckboxChange = (event) => {
+    const value = event.target.value;
+    const isChecked = event.target.checked;
+
+    const updatedColors = isChecked
+      ? [...selectedColors, value]
+      : selectedColors.filter((item) => item !== value);
+
+    dispatch(setColorSelection(updatedColors)); // Pass the new array directly
+
+    console.log("Selected colors:", updatedColors); // Debugging line
+
+    dispatch(fetchFilteredProducts());
+  };
 
   return (
     <aside className="filter-section">
@@ -13,16 +35,15 @@ function Colour({ handleColourChange }) {
         Colour
       </h4>
       {colourOpen && (
-        <ul
-          onChange={handleColourChange}
-          className="list-unstyled dropdown-animation"
-        >
+        <ul className="list-unstyled dropdown-animation">
           <li className="form-check">
             <input
               value="black"
               type="checkbox"
               className="form-check-input"
               id="black"
+              onChange={handleCheckboxChange}
+              checked={selectedColors.includes("black")} // Reflect Redux state
             />
             <label htmlFor="black" className="form-check-label">
               Black <span className="colour black"></span>
@@ -34,6 +55,8 @@ function Colour({ handleColourChange }) {
               type="checkbox"
               className="form-check-input"
               id="red"
+              onChange={handleCheckboxChange}
+              checked={selectedColors.includes("red")} // Reflect Redux state
             />
             <label htmlFor="red" className="form-check-label">
               Red <span className="colour red"></span>
@@ -45,6 +68,8 @@ function Colour({ handleColourChange }) {
               type="checkbox"
               className="form-check-input"
               id="brown"
+              onChange={handleCheckboxChange}
+              checked={selectedColors.includes("brown")} // Reflect Redux state
             />
             <label htmlFor="brown" className="form-check-label">
               Brown <span className="colour brown"></span>
@@ -56,6 +81,8 @@ function Colour({ handleColourChange }) {
               type="checkbox"
               className="form-check-input"
               id="multicolour"
+              onChange={handleCheckboxChange}
+              checked={selectedColors.includes("multicolour")} // Reflect Redux state
             />
             <label htmlFor="multicolour" className="form-check-label">
               Multicolour <span className="colour multicolour"></span>
@@ -67,6 +94,8 @@ function Colour({ handleColourChange }) {
               type="checkbox"
               className="form-check-input"
               id="grey"
+              onChange={handleCheckboxChange}
+              checked={selectedColors.includes("grey")} // Reflect Redux state
             />
             <label htmlFor="grey" className="form-check-label">
               Grey <span className="colour grey"></span>
@@ -78,6 +107,8 @@ function Colour({ handleColourChange }) {
               type="checkbox"
               className="form-check-input"
               id="blue"
+              onChange={handleCheckboxChange}
+              checked={selectedColors.includes("blue")} // Reflect Redux state
             />
             <label htmlFor="blue" className="form-check-label">
               Blue <span className="colour blue"></span>
@@ -89,6 +120,8 @@ function Colour({ handleColourChange }) {
               type="checkbox"
               className="form-check-input"
               id="green"
+              onChange={handleCheckboxChange}
+              checked={selectedColors.includes("green")} // Reflect Redux state
             />
             <label htmlFor="green" className="form-check-label">
               Green <span className="colour green"></span>
@@ -100,6 +133,8 @@ function Colour({ handleColourChange }) {
               type="checkbox"
               className="form-check-input"
               id="white"
+              onChange={handleCheckboxChange}
+              checked={selectedColors.includes("white")} // Reflect Redux state
             />
             <label htmlFor="white" className="form-check-label">
               White <span className="colour white"></span>

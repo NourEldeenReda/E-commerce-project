@@ -55,15 +55,9 @@
   margin-right: 10px;
 }
 
-/* Apply button styling */
-.sidebar-buttons .btn-primary {
-  background-color: #6200ea;
-  border-color: #6200ea;
-}
-
 .sidebar-buttons .btn-outline-secondary {
-  color: #000;
-  border-color: #ccc;
+  color: #ffffff;
+  border-color: #000000;
 }
 
 /* Adjust spacing between filters and sections */
@@ -82,4 +76,16 @@
 }
 .d-flex {
   align-items: start;
+}
+/* Make the reset button wider */
+.btn-reset {
+  width: 100%; /* Adjust width to make it wider */
+  text-align: center;
+}
+
+.btn-reset:hover {
+  background-color: #6200ea7e; /* Maintain the same background color on hover */
+  color: #ffffff; /* Maintain the same text color on hover */
+  border-color: #5109b446; /* Maintain the same border color on hover */
+  cursor: pointer; /* Optionally change the cursor to a pointer on hover */
 }

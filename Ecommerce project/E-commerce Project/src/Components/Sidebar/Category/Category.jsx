@@ -1,6 +1,9 @@
 import "./Category.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setCategorySelection } from "../../../Store/filteringSlice"; // Correct import path based on your structure
+import {
+  setCategorySelection,
+  fetchFilteredProducts,
+} from "../../../Store/filteringSlice"; // Import fetchFilteredProducts
 
 function Category() {
   const dispatch = useDispatch();
@@ -9,7 +12,12 @@ function Category() {
   );
 
   const handleCategoryClick = (category) => {
-    dispatch(setCategorySelection([category.toLowerCase()])); // Use lowercase for filtering logic
+    if (category === "all") {
+      dispatch(setCategorySelection([])); // Reset to an empty array for "All Categories"
+    } else {
+      dispatch(setCategorySelection([category.toLowerCase()])); // Update the category selection state
+    }
+    dispatch(fetchFilteredProducts()); // Fetch filtered data whenever a category is selected
   };
 
   // Helper function to capitalize the first letter of a string
@@ -21,6 +29,16 @@ function Category() {
     <aside className="category-section">
       <h4 className="category-header">Category</h4>
       <ul className="category-list">
+        <li className="category-item">
+          <button
+            className={`category-link ${
+              selectedCategory.length === 0 ? "active" : ""
+            }`}
+            onClick={() => handleCategoryClick("all")}
+          >
+            All Categories
+          </button>
+        </li>
         {categories.map((category) => (
           <li key={category} className="category-item">
             <button

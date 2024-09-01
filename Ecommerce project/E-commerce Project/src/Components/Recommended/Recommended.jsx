@@ -1,10 +1,14 @@
 import { useDispatch } from "react-redux";
 import Buttons from "../Buttons";
 import "./Recommended.css";
-import { setRecommendedBrand } from "../../Store/filteringSlice";
+import {
+  setRecommendedBrand,
+  fetchFilteredProducts,
+} from "../../Store/filteringSlice"; // Import fetchFilteredProducts
 
 function Recommended() {
   const dispatch = useDispatch();
+
   const handleClick = (event) => {
     const value = event.target.value;
     if (value === "") {
@@ -12,6 +16,8 @@ function Recommended() {
     } else {
       dispatch(setRecommendedBrand([value])); // Set the selected brand in an array
     }
+
+    dispatch(fetchFilteredProducts()); // Fetch filtered data whenever a recommended brand is selected
   };
 
   return (

@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Nav.css";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
-import { setQuery } from "../../Store/filteringSlice";
+import { fetchFilteredProducts, setQuery } from "../../Store/filteringSlice";
 function Nav() {
   const dispatch = useDispatch();
 
@@ -15,6 +15,8 @@ function Nav() {
   const handleInputChange = (event) => {
     dispatch(setQuery(event.target.value));
   };
+
+  dispatch(fetchFilteredProducts());
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
