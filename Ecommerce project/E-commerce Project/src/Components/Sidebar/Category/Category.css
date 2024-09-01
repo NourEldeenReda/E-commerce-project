@@ -11,7 +11,7 @@
 
 .category-list {
   list-style-type: none;
-  padding-left: 1;
+  padding-left: 0; /* Corrected padding for unordered list */
 }
 
 .category-item {
@@ -24,6 +24,10 @@
   color: #b3adad;
   display: inline-block;
   transition: color 0.3s ease;
+  background: none; /* Removes default button background */
+  border: none; /* Removes default button border */
+  cursor: pointer; /* Adds pointer cursor for button hover */
+  padding: 0; /* Removes default button padding */
 }
 
 .category-link:hover {

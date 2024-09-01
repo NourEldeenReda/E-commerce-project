@@ -1,4 +1,3 @@
-// store/filteringSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // Async thunk to fetch products
@@ -16,30 +15,15 @@ const filteringSlice = createSlice({
   initialState: {
     products: [],
     filteredProducts: [],
-    selectedCategory: [],
+    selectedCategory: [], // Used for Category.jsx
+    pendingSelectedCategory: [], // For Sidebar.jsx
+    recommendedBrand: [], // For Recommended.jsx
     query: "",
-    pendingSelectedCategory: [], // New state for holding temporary changes
     status: "idle",
     error: null,
   },
   reducers: {
-    setSelectedCategory: (state, action) => {
-      state.selectedCategory = action.payload;
-      state.filteredProducts = filterProducts(
-        state.products,
-        state.selectedCategory,
-        state.query
-      );
-    },
-    setQuery: (state, action) => {
-      state.query = action.payload;
-      state.filteredProducts = filterProducts(
-        state.products,
-        state.selectedCategory,
-        state.query
-      );
-    },
-    setPendingSelectedCategory: (state, action) => {
+    setFilteringResult: (state, action) => {
       state.pendingSelectedCategory = action.payload;
     },
     applyFilters: (state) => {
@@ -53,8 +37,33 @@ const filteringSlice = createSlice({
     resetFilters: (state) => {
       state.pendingSelectedCategory = [];
       state.selectedCategory = [];
+      state.recommendedBrand = [];
       state.query = "";
       state.filteredProducts = state.products; // Reset to all products
+    },
+    setCategorySelection: (state, action) => {
+      state.selectedCategory = action.payload;
+      state.filteredProducts = filterProducts(
+        state.products,
+        state.selectedCategory,
+        state.query
+      );
+    },
+    setRecommendedBrand: (state, action) => {
+      state.recommendedBrand = action.payload;
+      state.filteredProducts = filterProducts(
+        state.products,
+        state.recommendedBrand,
+        state.query
+      );
+    },
+    setQuery: (state, action) => {
+      state.query = action.payload;
+      state.filteredProducts = filterProducts(
+        state.products,
+        state.selectedCategory,
+        state.query
+      );
     },
   },
   extraReducers: (builder) => {
@@ -108,9 +117,10 @@ const filterProducts = (products, selectedCategories, query) => {
 };
 
 export const {
-  setSelectedCategory,
+  setFilteringResult,
+  setCategorySelection,
+  setRecommendedBrand,
   setQuery,
-  setPendingSelectedCategory,
   applyFilters,
   resetFilters,
 } = filteringSlice.actions;

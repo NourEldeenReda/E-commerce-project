@@ -9,7 +9,7 @@
       "price": 200,
       "brand": "Nike",
       "color": "white",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "price": 200,
       "brand": "Nike",
       "color": "red",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "price": 200,
       "brand": "Nike",
       "color": "green",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "price": 200,
       "brand": "Adidas",
       "color": "black",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 5,
@@ -86,7 +86,7 @@
       "price": 200,
       "brand": "Nike",
       "color": "green",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 9,
@@ -97,7 +97,7 @@
       "price": 200,
       "brand": "Adidas",
       "color": "blue",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 10,
@@ -108,7 +108,7 @@
       "price": 150,
       "brand": "Puma",
       "color": "green",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 11,
@@ -119,7 +119,7 @@
       "price": 150,
       "brand": "Puma",
       "color": "red",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 12,
@@ -130,7 +130,7 @@
       "price": 150,
       "brand": "Puma",
       "color": "black",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 13,
@@ -141,7 +141,7 @@
       "price": 150,
       "brand": "Puma",
       "color": "white",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 14,
@@ -152,7 +152,7 @@
       "price": 150,
       "brand": "Puma",
       "color": "black",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 15,
@@ -163,7 +163,7 @@
       "price": 100,
       "brand": "Puma",
       "color": "green",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 16,
@@ -251,7 +251,7 @@
       "price": 200,
       "brand": "Nike",
       "color": "red",
-      "category": "sneakes"
+      "category": "sneakers"
     },
     {
       "id": 24,

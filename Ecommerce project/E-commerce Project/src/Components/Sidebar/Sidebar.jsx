@@ -1,6 +1,5 @@
 import "./Sidebar.css";
 import Category from "./Category/Category";
-import Type from "./Type/Type";
 import Colour from "./Colour/Colour";
 import Size from "./Size/Size";
 import Price from "./Price/Price";
@@ -9,9 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./sidebar.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setQuery,
-  setSelectedCategory,
-  setPendingSelectedCategory,
+  setFilteringResult,
   applyFilters,
   resetFilters,
 } from "../../Store/filteringSlice";
@@ -21,23 +18,13 @@ function Sidebar() {
   const pendingSelectedCategories = useSelector(
     (state) => state.filtering.pendingSelectedCategory
   );
-  const query = useSelector((state) => state.filtering.query);
-
-  const handleCategoryChange = (event) => {
-    const value = event.target.value;
-    dispatch(setSelectedCategory([value])); // Immediate update for categories
-  };
-
-  const handleQueryChange = (event) => {
-    dispatch(setQuery(event.target.value)); // Immediate update for search query
-  };
 
   const handlePendingChange = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
 
     dispatch(
-      setPendingSelectedCategory(
+      setFilteringResult(
         isChecked
           ? [...pendingSelectedCategories, value]
           : pendingSelectedCategories.filter((item) => item !== value)
@@ -58,19 +45,7 @@ function Sidebar() {
       <div className="bg-light border-right" id="sidebar-wrapper">
         <div className="list-group list-group-flush">
           <div className="list-group-item bg-light">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={query}
-              onChange={handleQueryChange}
-              className="form-control mb-3"
-            />
-          </div>
-          <div className="list-group-item bg-light">
-            <Category handleCategoryChange={handleCategoryChange} />
-          </div>
-          <div className="list-group-item bg-light">
-            <Type />
+            <Category />
           </div>
           <div className="list-group-item bg-light">
             <Colour handleColourChange={handlePendingChange} />
