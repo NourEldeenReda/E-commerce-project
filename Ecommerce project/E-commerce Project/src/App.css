@@ -4,7 +4,7 @@
 .app-container {
   display: flex;
   flex-direction: row;
-  height: 100vh; /* Full height */
+  /* height: 100vh; Full height */
 }
 
 /* Sidebar styling */

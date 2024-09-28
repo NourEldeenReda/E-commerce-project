@@ -308,5 +308,28 @@
       "color": "black",
       "category": "flats"
     }
+  ],
+  "users": [
+    {
+      "username": "Bob",
+      "password": "BobLight258",
+      "Wishlist": [],
+      "Cart": [],
+      "id": 1
+    },
+    {
+      "username": "Light",
+      "password": "123",
+      "Wishlist": [],
+      "Cart": [],
+      "id": 2
+    },
+    {
+      "username": "LightBoyMan",
+      "password": "123456",
+      "Wishlist": [],
+      "Cart": [],
+      "id": 3
+    }
   ]
 }

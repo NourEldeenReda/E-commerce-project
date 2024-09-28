@@ -7,13 +7,24 @@ import "./Nav.css";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFilteredProducts, setQuery } from "../../Store/filteringSlice";
+import { selectCurrentUser, logout } from "../../Store/userSlice"; // Import user slice for auth
+import { useNavigate } from "react-router-dom";
+import logo from "../../assets/Logo.svg";
+
 function Nav() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const query = useSelector((state) => state.filtering.query);
+  const user = useSelector(selectCurrentUser); // Get the current user from Redux
 
   const handleInputChange = (event) => {
     dispatch(setQuery(event.target.value));
+  };
+
+  const handleLogout = () => {
+    dispatch(logout()); // Dispatch the logout action
+    navigate("/login"); // Navigate to login after logout
   };
 
   dispatch(fetchFilteredProducts());
@@ -22,10 +33,7 @@ function Nav() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
       <div className="container-fluid">
         <div className="navbar-brand logo-container">
-          <img
-            src="src\assets\Untitled_LE_auto_x2 (1)_LE_ml_resize_x2.jpg"
-            alt="Logo"
-          />
+          <img src={logo} alt="Logo" />
         </div>
 
         <div className="search-container mx-auto position-relative">
@@ -52,9 +60,20 @@ function Nav() {
             <span className="language-text">Your Cart</span>
             <AiOutlineShoppingCart className="nav-icons" />
           </a>
-          <a href="#" className="d-flex align-items-center ms-3">
-            <AiOutlineUserAdd className="nav-icons" />
-          </a>
+
+          {user ? (
+            <div className="d-flex align-items-center ms-3">
+              <span className="username-text">{user.username}</span>{" "}
+              {/* Display the logged-in user's name */}
+              <button className="logout-button" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <a href="/login" className="d-flex align-items-center ms-3">
+              <AiOutlineUserAdd className="nav-icons" />
+            </a>
+          )}
         </div>
       </div>
     </nav>
@@ -62,7 +81,8 @@ function Nav() {
 }
 
 Nav.propTypes = {
-  setQuery: PropTypes.func.isRequired,
-  query: PropTypes.string.isRequired,
+  setQuery: PropTypes.func,
+  query: PropTypes.string,
 };
+
 export default Nav;

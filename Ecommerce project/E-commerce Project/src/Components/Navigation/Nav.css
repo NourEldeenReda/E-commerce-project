@@ -64,6 +64,31 @@
   margin-left: 5px;
   color: #8269df;
 }
-.profile-container :hover {
+.profile-container a:hover {
   background-color: #afafcf8c;
+}
+
+/* Style for the logged-in username */
+.username-text {
+  font-size: 1rem;
+  color: #8269df; /* Match the color with other icons */
+  font-weight: bold;
+  border-radius: 100px;
+  background-color: #ccc2f863;
+  padding: 10px 10px;
+}
+
+/* Style for the logout button */
+.logout-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: #8269df; /* Match the color with other icons */
+  margin-left: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  text-decoration: underline; /* Add a hover effect */
 }
