@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setCart } from "./cartSlice";
+import { setWishlist } from "./wishlistSlice";
 
 // Load user from localStorage if available
 const storedUser = localStorage.getItem("user")
@@ -6,7 +8,7 @@ const storedUser = localStorage.getItem("user")
   : null;
 
 const initialState = {
-  user: storedUser, // Initialize with stored user data if "Remember Me" was used
+  user: storedUser, // Initialize with stored user data
 };
 
 const userSlice = createSlice({
@@ -14,17 +16,26 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      state.user = action.payload; // Set the user data
+      state.user = action.payload; // Set user data
     },
     logout: (state) => {
-      state.user = null; // Clear user data
-      localStorage.removeItem("user"); // Clear user data from localStorage on logout
+      state.user = null;
+      localStorage.removeItem("user"); // Clear localStorage on logout
     },
   },
 });
 
 export const { login, logout } = userSlice.actions;
 
-export const selectCurrentUser = (state) => state.user.user;
+// Thunk to fetch user data, cart, and wishlist
+export const fetchUserData = (userId) => async (dispatch) => {
+  const response = await fetch(`http://localhost:3000/users/${userId}`);
+  const userData = await response.json();
 
+  // Dispatch the fetched cart and wishlist to Redux
+  dispatch(setCart(userData.cart || []));
+  dispatch(setWishlist(userData.wishlist || []));
+};
+
+export const selectCurrentUser = (state) => state.user.user;
 export default userSlice.reducer;

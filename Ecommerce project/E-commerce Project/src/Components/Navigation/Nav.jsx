@@ -52,11 +52,11 @@ function Nav() {
             <span className="language-text">ENG</span>
             <MdOutlineLanguage className="nav-icons" />
           </a>
-          <a href="#" className="d-flex align-items-center ms-3">
+          <a href="Wishlist" className="d-flex align-items-center ms-3">
             <span className="language-text">Wishlist</span>
             <FiHeart className="nav-icons" />
           </a>
-          <a href="#" className="d-flex align-items-center ms-3">
+          <a href="Cart" className="d-flex align-items-center ms-3">
             <span className="language-text">Your Cart</span>
             <AiOutlineShoppingCart className="nav-icons" />
           </a>

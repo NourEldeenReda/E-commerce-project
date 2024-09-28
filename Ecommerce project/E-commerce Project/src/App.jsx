@@ -9,6 +9,8 @@ import { fetchProducts } from "./Store/filteringSlice";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import BrowserRouter
 import LoginForm from "./Components/LoginForm/LoginForm";
 import RegisterForm from "./Components/RegisterForm/RegisterForm";
+import Cart from "./Components/Carts/Cart.jsx";
+import Wishlist from "./Components/Wishlists/Wishlist.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +24,9 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
+        <Route path="/Cart" element={<Cart />} />
+        <Route path="/Wishlist" element={<Wishlist />} />
+
         <Route
           path="/"
           element={

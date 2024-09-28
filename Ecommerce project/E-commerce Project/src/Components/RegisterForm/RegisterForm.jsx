@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux"; // For dispatching login action
-import { login } from "../../store/userSlice"; // Import the login action
+import { login } from "../../Store/userSlice"; // Import the login action
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./RegisterForm.css"; // Reuse the same CSS file

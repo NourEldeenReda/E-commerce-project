@@ -36,6 +36,7 @@ const ProductCard = () => {
         {currentProducts.map(({ id, img, title, price, discount }) => (
           <Product
             key={id}
+            id={id}
             img={img}
             title={title}
             price={price}

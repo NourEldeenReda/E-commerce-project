@@ -1,52 +1,38 @@
 /* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { login } from "../../store/userSlice"; // Redux action to log in
-import { useNavigate } from "react-router-dom"; // to navigate after successful login
+import { login, fetchUserData } from "../../Store/userSlice";
+import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import toastify CSS
+import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.css";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false); // State for "Remember Me"
-  const [error, setError] = useState(""); // For displaying errors
-  const dispatch = useDispatch(); // Use Redux to dispatch actions
-
-  const navigate = useNavigate(); // For navigation after login
+  const [error, setError] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Fetch user data from the API
       const response = await fetch(
         `http://localhost:3000/users?username=${username}`
       );
       const users = await response.json();
 
-      console.log(users); // Debug: Check if the users array is being returned correctly
-
-      // Check if the user exists and the password matches
       if (users.length > 0 && users[0].password === password) {
-        // Show success toast
-        toast.success("Logged in successfully!", {
-          position: "top-right",
-        });
+        toast.success("Logged in successfully!");
+        const user = users[0];
+        dispatch(login({ id: user.id, username: user.username }));
 
-        const userData = { username: users[0].username };
+        // Fetch the user's cart and wishlist from the backend
+        dispatch(fetchUserData(user.id));
 
-        // Dispatch login action to Redux
-        dispatch(login(userData));
-
-        // If "Remember Me" is checked, store user data in localStorage
-        if (rememberMe) {
-          localStorage.setItem("user", JSON.stringify(userData));
-        }
-
-        // Redirect to homepage after a brief delay
         setTimeout(() => {
           navigate("/");
         }, 2000);
@@ -54,7 +40,6 @@ const LoginForm = () => {
         setError("Invalid username or password.");
       }
     } catch (error) {
-      console.error("Error fetching users:", error); // Log any error
       setError("Error logging in. Please try again.");
     }
   };
@@ -89,26 +74,14 @@ const LoginForm = () => {
               {error}
             </p>
           )}
-          <div className="remget">
-            <label>
-              <input
-                type="checkbox"
-                checked={rememberMe}
-                onChange={() => setRememberMe(!rememberMe)} // Handle checkbox change
-              />
-              Remember me
-            </label>
-            <a href="#">Forgot password?</a>
-          </div>
           <button type="submit">Login</button>
           <div className="register-link">
             <p>
-              Don't have an account? <a href="register">Register</a>
+              Don't have an account? <a href="/register">Register</a>
             </p>
           </div>
         </form>
       </div>
-      {/* Include the ToastContainer */}
       <ToastContainer />
     </div>
   );
