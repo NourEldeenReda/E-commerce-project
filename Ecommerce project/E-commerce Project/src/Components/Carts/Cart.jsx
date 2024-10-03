@@ -17,6 +17,8 @@ const Cart = () => {
     dispatch(removeFromCart(id));
   };
 
+  console.log("Cart items:", cartItems);
+
   return (
     <div>
       <h1>Your Cart</h1>

@@ -13,6 +13,7 @@ const Wishlist = () => {
   const handleRemove = (id) => {
     dispatch(removeFromWishlist(id));
   };
+  console.log("Wishlist items:", wishlistItems);
 
   return (
     <div>
