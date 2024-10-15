@@ -4,6 +4,7 @@ import {
   updateQuantity,
   removeFromCart,
 } from "../../Store/cartSlice";
+import "./cart.css";
 
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
@@ -20,15 +21,15 @@ const Cart = () => {
   console.log("Cart items:", cartItems);
 
   return (
-    <div>
+    <div className="cart-container">
       <h1>Your Cart</h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         cartItems.map((item) => (
-          <div key={item.id}>
-            <h3>{item.title}</h3>
+          <div key={item.id} className="cart-item">
             <img src={item.img} alt={item.title} />
+            <h3>{item.title}</h3>
             <p>Price: ${item.price}</p>
             <input
               type="number"

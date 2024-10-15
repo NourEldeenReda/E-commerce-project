@@ -16,15 +16,15 @@ const Wishlist = () => {
   console.log("Wishlist items:", wishlistItems);
 
   return (
-    <div>
+    <div className="wishlist-container">
       <h1>Your Wishlist</h1>
       {wishlistItems.length === 0 ? (
         <p>Your wishlist is empty.</p>
       ) : (
         wishlistItems.map((item) => (
-          <div key={item.id}>
-            <h3>{item.title}</h3>
+          <div key={item.id} className="wishlist-item">
             <img src={item.img} alt={item.title} />
+            <h3>{item.title}</h3>
             <p>Price: ${item.price}</p>
             <button onClick={() => handleRemove(item.id)}>Remove</button>
           </div>

@@ -1,0 +1,65 @@
+/* Container for the wishlist */
+.wishlist-container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Title of the wishlist */
+.wishlist-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+/* Styling for the empty wishlist message */
+.wishlist-container p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Each wishlist item */
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.wishlist-item h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  flex: 2;
+}
+
+/* Image styling */
+.wishlist-item img {
+  max-width: 100px;
+  margin-right: 20px;
+  flex: 1;
+}
+
+/* Price styling */
+.wishlist-item p {
+  font-size: 1.2rem;
+  margin-right: 20px;
+  flex: 1;
+}
+
+/* Button styling */
+.wishlist-item button {
+  padding: 8px 12px;
+  background-color: #ff4c4c;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.wishlist-item button:hover {
+  background-color: #e60000;
+}

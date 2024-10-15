@@ -316,6 +316,20 @@
       "Wishlist": [],
       "Cart": [],
       "id": 1
+    },
+    {
+      "username": "ziad",
+      "password": "123",
+      "Wishlist": [],
+      "Cart": [],
+      "id": 2
+    },
+    {
+      "username": "nour",
+      "password": "123",
+      "Wishlist": [],
+      "Cart": [],
+      "id": 3
     }
   ]
 }
