@@ -5,7 +5,7 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchProducts } from "./Store/filteringSlice";
+import { fetchProducts } from "./Store/filteringSlice.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import BrowserRouter
 import LoginForm from "./Components/LoginForm/LoginForm";
 import RegisterForm from "./Components/RegisterForm/RegisterForm";
